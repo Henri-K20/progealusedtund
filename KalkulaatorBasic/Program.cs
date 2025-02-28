@@ -53,7 +53,6 @@ namespace KalkulaatorBasic
                 double vaste = first / second;
                 Console.WriteLine("Vastus on: " + vaste + " !");
             }
-
         }
     }
 }
