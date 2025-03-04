@@ -8,12 +8,12 @@
             {
                 for (int i = 0; i < 2; i++)
                 {
-                    Console.WriteLine("kill-koll");
+                    Console.Write("kill-koll ");
                     if (i == 1)
                     {
                         for (int j = 0; j < 1; j++)
                         {
-                            Console.WriteLine("killadi-koll");
+                            Console.Write("killadi-koll ");
                         }
                     }
                 }
