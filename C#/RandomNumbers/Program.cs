@@ -10,7 +10,7 @@ namespace RandomNumbers
             switch (number)
             {
                 case int i when (i >= 1 && i <= 6):                 
-                    Console.WriteLine(number);
+                    Console.WriteLine("Veeretasid: " + number);
                     break;
                 default:
                     Console.ForegroundColor = ConsoleColor.Red;
