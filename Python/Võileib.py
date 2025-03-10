@@ -1,4 +1,4 @@
-from random import choice
+from random import randint
 sai = "[ , ,, '' ']"
 kurk = "▄▄▄▄ ▄▄▄"
 tomat = "( | ▌|██)"
@@ -10,40 +10,160 @@ while True:
         while True:
             kokk = input("Kas soovite ise võileiva teha(ise), või soovite lasta arvutil teha(arvuti) ? :").lower()
             if kokk == "ise":
-                tyyp = input("Kas soovite ühepoolset(1) või kahepoolset(2) võileiba? :")
-                m22ris = input("Kas soovite võid(1) või majoneesi(2) ? :")
-                l1 = input("Kas soovite kurki? jah/ei :").lower()
-                l2 = input("Kas soovite tomatit? jah/ei :").lower()
-                l3 = input("Kas soovite peekonit? jah/ei :").lower()
-                
-                if tyyp == "2":
-                    print(sai)
-                if l1.lower == "jah":
-                    print(kurk)
-                    hind += 0.75
-                if l2.lower == "jah":
-                    print(tomat)
-                    hind += 0.75
-                if l3.lower == "jah":
-                    print(bacon)
-                    hind += 0.75
-                hind += 0.75 #või/majonees
-                print(sai)
+                tyyp = int(input("Kas soovite ühepoolset(1) või kahepoolset(0) võileiba? :"))
+                m22ris = input("Kas soovite võid(1) või majoneesi(0) ? :")
+                l1 = int(input("Kas soovite kurki? 1/0 :"))
+                l2 = int(input("Kas soovite tomatit? 1/0 :"))
+                l3 = int(input("Kas soovite peekonit? 1/0 :"))
                 break
-            if kokk == "arvuti":
-                for i in range(5):
-                    i+=1
-                    valik = choice([kurk, tomat, bacon])
-                    hind += 0.75
-                    print(valik)
-                print(sai)
+            elif kokk == "arvuti":
+                tyyp = randint(0,1)
+                m22ris = randint(0,1)
+                l1 = randint(0,1)
+                l2 = randint(0,1)
+                l3 = randint(0,1)
                 break
             else:
                 print("Väär sisend!")
+        if l1 == 1:
+            hind += 0.75
+        if l2 == 1:
+            hind += 0.75
+        if l3 == 1:
+            hind += 0.75
+        hind += 0.75 #või/majonees
         while True:
+            while True:
+                extra = int(input("Kas soovite veel midagi? 1/0 :"))
+                if extra == 0:
+                    print("Arusaadav.")
+                    break
+                elif extra == 1:
+                    while True:
+                        valik = input("Valikus on meil suured/tavalised friikad ja suur/tavaline jook. (suured/tavalised friikad või suur/tavaline jook):").lower()
+                        if valik == "suured friikad" or valik == "suur jook":
+                                suurus = input("Kas soovite veel suuremat varjanti? jah/ei :").lower()
+                                if suurus == "jah":
+                                    hind += 2
+                                elif suurus == "ei":
+                                    hind += 1.5
+                                break
+                        elif valik == "tavalised friikad" or valik == "tavaline jook":
+                            print("Hea valik!")
+                            hind += 1
+                            break
+                        else:
+                            print("Seda ei ole valikus, proovige uuesti.")
+                    break
+                else:
+                    print("Väär sisend!")
             makse = input("Palun makske "+str(hind)+" Eurot. jah/ei :").lower()
             if makse == "jah":
                 print("Aitäh tellimuse eest, tulge jälle!")
+                if tyyp == 0:
+                    print(sai)
+                if l1 == 1:
+                    print(kurk)
+                if l2 == 1:
+                    print(tomat)
+                if l3 == 1:
+                    print(bacon)
+                print(sai)
+                if extra == 1:
+                    print("\n")
+                    print("Ja")
+                    print("\n")
+                    if valik == "tavalised friikad":
+                        print("\|||||||||||/")
+                        print(" \|||||||||/")
+                        print("  \___/")
+                    elif valik == "tavaline jook":
+                          print("""
+                            ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⣀⣀⣀⣀⣀⣀⣀⣀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣶⣶⣶⣶⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣾⣶⣶⣾⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⢀⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⢀⡿⣹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠛⠉⢀⡌⠉⣿⣦⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⢠⡿⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⠀⢀⣴⡿⣡⣿⣿⣿⡆⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⢸⣷⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⢿⣿⡿⠿⣿⣿⡿⠿⣿⣿⡿⠋⠀⠀⣰⣿⡟⣰⣿⡏⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⢸⣯⣹⣿⡿⠉⣠⠄⢸⣿⡿⠉⢀⣠⡟⠀⠀⣴⣿⠁⠀⣠⣿⠏⠀⠀⢠⣾⣿⣿⢰⣿⡏⣼⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⢸⣿⣽⠟⠀⣼⡏⢀⣾⠋⠀⣠⣿⡟⠀⢀⣼⣿⣿⣿⣿⡟⠀⠀⢀⣼⣿⣿⣿⣿⣌⣋⣼⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⢸⣿⡇⠀⣼⣿⣿⡿⠁⠀⣴⣿⠏⠀⢠⣿⣿⢿⣿⣿⠏⠀⠀⢠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⢸⣿⠁⢠⣿⣿⡿⠁⠀⣾⣿⠃⠀⢠⣿⠟⣠⣿⣿⠋⠀⠀⢠⣾⡿⠋⠁⣠⣾⢸⣿⣿⠟⣁⡶⣿⣿⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⢸⣿⠀⢸⡿⢿⠀⠀⠰⡟⠁⠀⠀⠟⣡⣾⣿⣿⠃⠀⠀⢠⣿⡿⠁⠀⣠⣿⣿⢰⡿⠃⠀⣿⣇⡿⣿⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⢸⣿⣄⢈⣷⣾⣀⣀⣠⣶⣀⣀⣤⣾⣿⣿⣿⡟⠀⠀⠀⣼⣿⠃⣀⣴⣿⡿⢯⡿⠁⢀⣼⣿⣹⠃⣿⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⠿⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⢀⣿⣧⣼⣿⣿⡟⢁⣾⠁⠀⣼⣿⢏⡿⠀⣿⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⢸⣿⣫⣭⡀⠀⠀⠀⠀⠈⠙⠻⢿⣿⣿⣿⣿⣧⠀⠀⠀⠻⢿⣿⠟⢋⣠⣿⡏⠀⠀⠻⢃⣾⡇⠀⣿⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣷⡄⣀⣴⣶⣶⣦⣤⣙⢿⣿⣿⣿⣦⣄⣀⣀⣀⣤⣴⣾⣿⣿⣿⣀⣀⣤⣾⣿⣧⣠⣿⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⠩⣿⡏⢻⢹⡿⠍⣿⢹⡏⡛⢿⠋⠹⣿⣿⣿⣿⡏⢩⡟⠹⣟⠉⣿⢹⡏⢹⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣷⣿⣷⣾⣿⣷⣶⣿⣾⣿⣷⣿⣶⣶⣿⣦⣾⣿⣷⣾⣿⣷⣿⣶⣿⣿⣷⣾⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡟⠻⡿⣿⠛⠿⡟⡿⣿⢿⡿⣿⠟⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣟⢛⡿⣿⢻⢷⢿⡷⡟⣿⡿⠻⠛⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠸⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠙⢿⣟⠛⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠟⠛⡫⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⢦⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠞⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠙⠒⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                                """)
+                    elif valik == "suured friikad":
+                        print("""
+                    ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+                    ⠀⠀⠀⠀⢤⣆⠀⣀⡀⠀⣤⡄⢸⣿⠀⣶⠀⣼⡇⣠⡀⢀⣷⠂⠀⠀⠀⠀⠀⠀
+                    ⠀⠀⠀⠀⠈⠉⠀⢻⣿⠀⢿⡇⢸⣿⠀⡿⠀⣿⠃⣿⠁⣼⡟⠀⣶⡄⠀⠀⠀⠀
+                    ⠀⠀⠀⠀⠀⢿⡄⠘⣿⡇⠈⡁⠸⣿⠀⠁⢰⡏⢀⡁⢰⣿⠃⣸⣿⠀⠀⠀⠀⠀
+                    ⠀⠀⠀⠀⠀⠈⢿⣆⠘⣿⠀⢻⡀⢻⡇⠀⢸⡇⢸⡇⢸⡟⢀⣿⡇⠀⠀⠀⠀⠀
+                    ⠀⠀⠀⠀⠀⠀⠈⠻⠆⠘⠇⢸⣇⠘⡇⠀⣾⠀⣾⠃⠸⠁⠘⠋⠀⠀⠀⠀⠀⠀
+                    ⠀⠀⠀⠀⠀⠀⢺⣶⣦⣤⣀⣀⣉⣀⣁⣀⣉⣀⣁⣤⣤⣶⣶⡗⠀⠀⠀⠀⠀⠀
+                    ⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀
+                    ⠀⠀⠀⠀⠀⠀⠸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇⠀⠀⠀⠀⠀⠀
+                    ⠀⠀⠀⠀⠀⠀⠀⣿⣯⡉⠉⣭⣭⣭⣭⣭⣭⣭⣭⠉⢉⣽⣿⠀⠀⠀⠀⠀⠀⠀
+                    ⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣆⠘⢿⣿⣿⣿⣿⡿⠃⣰⣿⣿⣿⠀⠀⠀⠀⠀⠀⠀
+                    ⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣷⣄⠙⢿⡿⠋⣠⣾⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀
+                    ⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣦⡈⢁⣴⣿⣿⣿⣿⣿⡇⠀⠀⠀⠀⠀⠀⠀
+                    ⠀⠀⠀⠀⠀⠀⠀⠈⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠁⠀⠀⠀⠀⠀⠀⠀
+                    ⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀
+
+                                """)
+                    elif valik == "suur jook":
+                        print("""
+                                    ⢠⣶⣶⣶⣶⣦⠀⠀⠀⠀⠀
+                            ⠀⠀⠀⠀⢸⣟⣿⣿⣿⣻⠀⠀⠀⠀⠀
+                            ⠀⠀⠀⠀⠉⡏⣿⠻⡟⡇⠁⠀⠀⠀⠀
+                            ⠀⠀⠀⠀⢠⡇⡇⠀⣧⢳⠀⠀⠀⠀⠀
+                            ⠀⠀⠀⠀⣾⢠⡇⠀⢻⡘⣧⠀⠀⠀⠀
+                            ⠀⠀⠀⣼⡏⢸⠀⠀⠀⡇⠹⣆⠀⠀⠀
+                            ⠀⠀⣸⠋⠀⠟⠀⠀⠀⢳⠀⠻⣆⠀⠀
+                            ⠀⣼⡋⠉⠉⠉⠉⠉⠉⠉⡍⠉⢽⣆⠀
+                            ⠀⣃⣁⣀⣀⣀⣀⣀⣀⣀⣘⣀⣐⣻⠀
+                            ⠀⠟⣉⢹⣇⣉⢩⣍⣼⡏⢹⡿⣻⣿⡀
+                            ⠑⡄⢻⡞⢨⡉⢻⢙⣭⢉⣯⢡⡽⢹⠆
+                            ⠰⡷⢀⠃⣼⢠⠇⣼⡏⣸⠇⣸⠁⢾⠦
+                            ⠀⣴⡞⢰⠗⢻⢶⠟⠒⠛⠲⡏⠓⢶⠂
+                            ⠀⡏⠓⣟⣛⣻⣞⣻⣛⣛⣛⡃⠀⣸⠀
+                            ⠀⣗⠒⠓⠒⠒⠒⠛⠒⠛⠛⠃⣐⣻⠀
+                            ⠀⣿⠀⠀⠐⠈⠀⠀⠀⠀⠀⠈⢁⣿⠀
+                            ⠀⢹⡇⠀⠠⠐⠀⠀⠀⠄⠀⠘⢉⡇⠀
+                            ⠀⠘⡗⠀⠠⠐⠀⠀⠀⠀⠀⠘⢹⡇⠀
+                            ⠀⠀⣿⠀⠠⣔⠀⠀⠀⠅⠠⠉⣹⡀⠀
+                            ⠀⢠⡇⡇⠠⢌⠀⠀⠀⠄⢲⠐⢾⣇⠀
+                            ⠀⡞⢸⠁⢘⠊⠀⠀⠀⠀⠘⡄⠑⢿⡄
+                            ⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠀⠈⡇
+                            ⠀⣧⢀⣀⠀⠀⣠⣶⣶⡤⠀⠀⠀⢸⠃
+                            ⠀⠸⣇⣙⣧⣭⣉⣻⣽⣥⣤⣞⣻⡏⠀
+                            ⠀⠀⠀⠀⡀⡀⠉⠙⠋⠀⠀⠀⠀⠀⠀
+                                """)
                 break
             elif makse == "ei":
                 print("Ootame teid jälle, kui on isu ja raha.")
