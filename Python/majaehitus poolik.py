@@ -17,6 +17,7 @@
 seina = ["tellis", "puit", "betoon"]
 seinahind = [1, 2, 2.5]
 
+
 vundament = ["paekivi", "betoon"]
 vundamenthind = [1, 2.5]
 
@@ -30,7 +31,9 @@ mööbel = ["köögi", "elutoa", "vannitoa", "magamistoa"]
 mööbelhind = [50, 35, 65, 100]
 materjal = ""
 vastus = ""
-hind = 0
+summa = 0
+
+
 while True:
     ehitab = input("Kas te ehitate maja? jah/ei"+"\n:")
     if ehitab == "ei":
@@ -95,8 +98,10 @@ Puitlaud - 2 eur/m2
 Parkett - 1.25 eur/m2
 Linoleum - 3.2 eur/m2
 ######################
-:""").lower()
-
+:""").lower()    
+            #summa += seinahind[materjal]
+            summa += 
+            
     break
 
 
