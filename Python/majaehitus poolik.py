@@ -14,24 +14,52 @@
 # - Kliendikaardi olemasolul saab ostult -15% alla mööblilt, -20% alla ehitusmaterjalilt.
 # Väljasta kasutajale Kviitung kõigest mida ta ostis.
 
-if input("Kas te ehitate maja? jah/ei"+"\n:").lower() == "jah":
-    while True:
-        
-        vastus = input("""
+seina = ["tellis", "puit", "betoon"]
+seinahind = [1, 2, 2.5]
+
+vundament = ["paekivi", "betoon"]
+vundamenthind = [1, 2.5]
+
+katus = ["plekk", "eterniit", "tõrvapapp"]
+katushind = [2, 1.5, 3]
+
+põrand = ["puitlaud", "parkett", "linoleum"]
+põrandhind = [2, 1.25, 3.2]
+
+mööbel = ["köögi", "elutoa", "vannitoa", "magamistoa"]
+mööbelhind = [50, 35, 65, 100]
+materjal = ""
+vastus = ""
+hind = 0
+while True:
+    ehitab = input("Kas te ehitate maja? jah/ei"+"\n:")
+    if ehitab == "ei":
+        print("Head päeva!")
+        break
+    elif ehitab.lower() != "jah" or ehitab == "ei":
+        print("Väär sisend!")
+
+    elif ehitab.lower() == "jah":
+        while True:
+            
+            vastus = input("""
 ######################
 Kas teil on midagi puudu?
 - Seinamaterjal
 - Vundamendimaterjal
 - Katusematerjal
 - Põrandamaterjal
-- Mööbel
 
 Kui ei, siis vajutage enterit.
 ######################
 :""").lower()
-        pindala = input("Kui suur on ehitatav pindala? m2"+"\n:")
-        if vastus == "seinamaterjal":
-            materjal = input("""
+
+            if vastus == "":
+                break
+            
+            pindala = input("Kui suur on ehitatav pindala? m2"+"\n:")
+            if vastus == "seinamaterjal":
+                materjal = input("""
 ######################
 Valige materjal:
 Tellis - 1 eur/m2
@@ -40,8 +68,8 @@ Betoon - 2.5 eur/m2
 ######################
 :""").lower()
         
-        elif vastus == "vundamendimaterjal":
-            materjal = input("""
+            elif vastus == "vundamendimaterjal":
+                materjal = input("""
 ######################
 Valige materjal:
 Paekivi - 1 eur/m2
@@ -49,8 +77,8 @@ Betoon - 2.5 eur/m2
 ######################
 :""").lower()
         
-        elif vastus == "katusematerjal":
-            materjal = input("""
+            elif vastus == "katusematerjal":
+                materjal = input("""
 ######################
 Valige materjal:
 Plekk - 2 eur/m2
@@ -59,16 +87,27 @@ Tõrvapapp - 3 eur/m2
 ######################
 :""").lower()
         
-        elif vastus == "põrandamaterjal":
-            materjal = input("""
+            elif vastus == "põrandamaterjal":
+                materjal = input("""
 ######################
 Valige materjal:
 Puitlaud - 2 eur/m2
-Parkett - 1.25 eur*m2
+Parkett - 1.25 eur/m2
 Linoleum - 3.2 eur/m2
 ######################
 :""").lower()
-        elif vastus == "mööbel":
+
+    break
+
+
+
+
+
+
+if materjal != "":
+    while True:
+        mööbelvaste = input("Kas ei soovi äkki mööblit? jah/ei" + "\n:")
+        if mööbelvaste.lower() == "jah":
             materjal = input("""
 ######################
 Valige materjal:
@@ -78,5 +117,14 @@ Vannitoa sisustus - 65 eur/tk
 Magamistoa mööbel - 100 eur/tk
 ######################
 :""").lower()
-        
-print("Head päeva!")
+            break
+        elif mööbelvaste.lower() == "ei":
+            break
+        else:
+            print("Väär sisend!")
+
+    print("Maksumus kokku on: " + materjal)
+
+
+
+
