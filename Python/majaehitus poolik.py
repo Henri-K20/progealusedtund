@@ -16,18 +16,26 @@
 
 hinnad = [[1, 2, 2.5], [1, 2.5], [2, 1.5, 3], [2, 1.25, 3.2], [50, 35, 65, 100]]
 
-materjal = ""
-vastus = ""
+hind = []
+cart = []
 summa = 0
+
+mööbel = 0
+materjal = 10
+vastus = 0
+
+
 
 
 while True:
     ehitab = input("Kas te ehitate maja? jah/ei"+"\n:")
-    if ehitab == "ei" or ehitab == "":
+    if ehitab == "ei":
         print("Head päeva!")
         break
+    
     elif ehitab.lower() != "jah" or ehitab == "ei":
         print("Väär sisend!")
+        
     elif ehitab.lower() == "jah":
         while True:
             
@@ -92,10 +100,7 @@ Sisestage valiku nr:
 
 
 
-
-
-
-if materjal != "":
+if materjal != 10:
     while True:
         mööbelvaste = input("Kas ei soovi äkki mööblit? jah/ei" + "\n:")
         if mööbelvaste.lower() == "jah":
@@ -109,7 +114,10 @@ Sisestage valiku nr:
 3. Magamistoa mööbel - 100 eur/tk
 ######################
 :""").lower()
-            summa += hinnad[int(vastus)][int(materjal)]
+            valik.append(materjal)
+            hind.append(hinnad[int(vastus)][int(materjal)])
+            mööbel = hinnad[int(vastus)][int(materjal)]
+            summa += mööbel
             break
         elif mööbelvaste.lower() == "ei":
             break
@@ -117,7 +125,18 @@ Sisestage valiku nr:
             print("Väär sisend!")
 
     print(f"Maksumus kokku on: €{summa}")
-
-
-
-
+    while True:
+        kaart = input("Kas teil on kliendikaart olemas? jah/ei")
+        if kaart == "jah":
+            summa = ((summa - mööbel) *0.8) + (mööbel * 0.85)
+            break
+        elif kaart == "ei":
+            break
+        else:
+            print("Väär sisend!")
+    print("####KVIITUNG####")
+    for item in cart:
+        print(item)
+    print(f"Summa on €{summa}")
+        
+        
