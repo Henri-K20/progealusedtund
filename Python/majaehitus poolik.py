@@ -14,21 +14,8 @@
 # - Kliendikaardi olemasolul saab ostult -15% alla mööblilt, -20% alla ehitusmaterjalilt.
 # Väljasta kasutajale Kviitung kõigest mida ta ostis.
 
-seina = ["tellis", "puit", "betoon"]
-seinahind = [1, 2, 2.5]
+hinnad = [[1, 2, 2.5], [1, 2.5], [2, 1.5, 3], [2, 1.25, 3.2], [50, 35, 65, 100]]
 
-
-vundament = ["paekivi", "betoon"]
-vundamenthind = [1, 2.5]
-
-katus = ["plekk", "eterniit", "tõrvapapp"]
-katushind = [2, 1.5, 3]
-
-põrand = ["puitlaud", "parkett", "linoleum"]
-põrandhind = [2, 1.25, 3.2]
-
-mööbel = ["köögi", "elutoa", "vannitoa", "magamistoa"]
-mööbelhind = [50, 35, 65, 100]
 materjal = ""
 vastus = ""
 summa = 0
@@ -36,72 +23,71 @@ summa = 0
 
 while True:
     ehitab = input("Kas te ehitate maja? jah/ei"+"\n:")
-    if ehitab == "ei":
+    if ehitab == "ei" or ehitab == "":
         print("Head päeva!")
         break
     elif ehitab.lower() != "jah" or ehitab == "ei":
         print("Väär sisend!")
-
     elif ehitab.lower() == "jah":
         while True:
             
             vastus = input("""
-######################
-Kas teil on midagi puudu?
-- Seinamaterjal
-- Vundamendimaterjal
-- Katusematerjal
-- Põrandamaterjal
+#########################
+Kas teil on midagi puudu? valige nr
+0. Seinamaterjal
+1. Vundamendimaterjal
+2. Katusematerjal
+3. Põrandamaterjal
 
 Kui ei, siis vajutage enterit.
-######################
+#########################
 :""").lower()
 
             if vastus == "":
                 break
             
-            pindala = input("Kui suur on ehitatav pindala? m2"+"\n:")
-            if vastus == "seinamaterjal":
-                materjal = input("""
+            pindala = float(input("Kui suur on ehitatav pindala? m2"+"\n:"))
+            if vastus == "0":
+                materjal = int(input("""
 ######################
-Valige materjal:
-Tellis - 1 eur/m2
-Puit - 2 eur/m2
-Betoon - 2.5 eur/m2
+Sisestage valiku nr:
+0. Tellis - 1 eur/m2
+1. Puit - 2 eur/m2
+2. Betoon - 2.5 eur/m2
 ######################
-:""").lower()
+:""").lower())
         
-            elif vastus == "vundamendimaterjal":
-                materjal = input("""
+            elif vastus == "1":
+                materjal = int(input("""
 ######################
-Valige materjal:
-Paekivi - 1 eur/m2
-Betoon - 2.5 eur/m2
+Sisestage valiku nr:
+0. Paekivi - 1 eur/m2
+1. Betoon - 2.5 eur/m2
 ######################
-:""").lower()
+:""").lower())
         
-            elif vastus == "katusematerjal":
-                materjal = input("""
+            elif vastus == "2":
+                materjal = int(input("""
 ######################
-Valige materjal:
-Plekk - 2 eur/m2
-Eterniit - 1.5 eur/m2
-Tõrvapapp - 3 eur/m2
+Sisestage valiku nr:
+0. Plekk - 2 eur/m2
+1. Eterniit - 1.5 eur/m2
+2. Tõrvapapp - 3 eur/m2
 ######################
-:""").lower()
+:""").lower())
         
-            elif vastus == "põrandamaterjal":
-                materjal = input("""
+            elif vastus == "3":
+                materjal = int(input("""
 ######################
-Valige materjal:
-Puitlaud - 2 eur/m2
-Parkett - 1.25 eur/m2
-Linoleum - 3.2 eur/m2
+Sisestage valiku nr:
+0. Puitlaud - 2 eur/m2
+1. Parkett - 1.25 eur/m2
+2. Linoleum - 3.2 eur/m2
 ######################
-:""").lower()    
-            #summa += seinahind[materjal]
-            summa += 
-            
+:""").lower())
+
+            summa += (pindala * hinnad[int(vastus)][int(materjal)])
+            print(f"Hetkene summa on teil: {summa}")
     break
 
 
@@ -113,22 +99,24 @@ if materjal != "":
     while True:
         mööbelvaste = input("Kas ei soovi äkki mööblit? jah/ei" + "\n:")
         if mööbelvaste.lower() == "jah":
+            vastus = 4
             materjal = input("""
 ######################
-Valige materjal:
-Köögimööbel - 50 eur/tk
-Elutoamööbel - 35 eur/tk
-Vannitoa sisustus - 65 eur/tk
-Magamistoa mööbel - 100 eur/tk
+Sisestage valiku nr:
+0. Köögimööbel - 50 eur/tk
+1. Elutoamööbel - 35 eur/tk
+2. Vannitoa sisustus - 65 eur/tk
+3. Magamistoa mööbel - 100 eur/tk
 ######################
 :""").lower()
+            summa += hinnad[int(vastus)][int(materjal)]
             break
         elif mööbelvaste.lower() == "ei":
             break
         else:
             print("Väär sisend!")
 
-    print("Maksumus kokku on: " + materjal)
+    print(f"Maksumus kokku on: €{summa}")
 
 
 
