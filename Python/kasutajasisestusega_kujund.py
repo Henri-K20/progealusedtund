@@ -20,6 +20,7 @@ noor = True
 värvid = ["punane", "oranz", "kollane", "roheline", "helesinine", "tumesinine", "lilla", "roosa", "must", "valge", "pruun", "tumeroheline", "teal"]
 värv = ""
 ivärv = ""
+ivärvlist = []
 kujundid = ["ring", "ruut", "võrdhaarne kolmnurk", "kuusnurk"]
 kujund = ""
 nimi = ""
@@ -81,29 +82,29 @@ Teal
 -------------------------
 ->""").lower()
         if värv == "punane":
-            värv1 = "FF0000"
+            värv1 = "FF 00 00"
         elif värv == "oranz":
-            värv1 = "FFA500"
+            värv1 = "FF A5 00"
         elif värv == "kollane":
-            värv1 = "FFFF00"
+            värv1 = "FF FF 00"
         elif värv == "roheline":
-            värv1 = "008000"
+            värv1 = "00 80 00"
         elif värv == "lightblue":
-            värv1 = "ADD8E6"
+            värv1 = "AD D8 E6"
         elif värv == "tumesinine":
-            värv1 = "00008B"
+            värv1 = "00 00 8B"
         elif värv == "lilla":
-            värv1 = "800080"
+            värv1 = "80 00 80"
         elif värv == "roosa":
-            värv1 = "FFC0CB"
+            värv1 = "FF C0 CB"
         elif värv == "must":
-            värv1 = "000000"
+            värv1 = "00 00 00"
         elif värv == "valge":
-            värv1 = "FFFFFF"
+            värv1 = "FF FF FF"
         elif värv == "pruun":
-            värv1 = "964B00"
+            värv1 = "96 4B 00"
         elif värv == "tumeroheline":
-            värv1 = "006400"
+            värv1 = "00 64 00"
             
         värv = input("""
 ----------MIXER----------
@@ -124,30 +125,39 @@ Teal
 -------------------------
 ->""").lower()
         if värv == "punane":
-            värv2 = "FF0000"
+            värv2 = "FF 00 00"
         elif värv == "oranz":
-            värv2 = "FFA500"
+            värv2 = "FF A5 00"
         elif värv == "kollane":
-            värv2 = "FFFF00"
+            värv2 = "FF FF 00"
         elif värv == "roheline":
-            värv2 = "008000"
+            värv2 = "00 80 00"
         elif värv == "lightblue":
-            värv2 = "ADD8E6"
+            värv2 = "AD D8 E6"
         elif värv == "tumesinine":
-            värv2 = "00008B"
+            värv2 = "00 00 8B"
         elif värv == "lilla":
-            värv2 = "800080"
+            värv2 = "80 00 80"
         elif värv == "roosa":
-            värv2 = "FFC0CB"
+            värv2 = "FF C0 CB"
         elif värv == "must":
-            värv2 = "000000"
+            värv2 = "00 00 00"
         elif värv == "valge":
-            värv2 = "FFFFFF"
+            värv2 = "FF FF FF"
         elif värv == "pruun":
-            värv2 = "964B00"
+            värv2 = "96 4B 00"
         elif värv == "tumeroheline":
-            värv2 = "006400"
-        ivärv = (int(värv1, 16) + int(värv2, 16))/2
+            värv2 = "00 64 00"
+        värvlist1 = värv1.split()
+        värvlist2 = värv2.split()
+        ivärvlist.append(hex(int(round((int(värvlist1[0],16) + int(värvlist2[0],16))/2))))
+        ivärvlist.append(hex(int(round((int(värvlist1[1],16) + int(värvlist2[1],16))/2))))
+        ivärvlist.append(hex(int(round((int(värvlist1[2],16) + int(värvlist2[2],16))/2))))
+        i = 3
+        while i != 0:
+            ivärvlist[i-1] = ivärvlist[i-1][2:]
+            i -=1
+        ivärv = "#"+"".join(ivärvlist)
         print(ivärv)
         break
     elif not värv in värvid:
@@ -178,7 +188,7 @@ Teal
         elif värv == "tumeroheline":
             ivärv = "darkgreen"
         break
-while värv != "":
+while ivärv != "":
     kujund = input("""
 -------------------------
 Mis on teie lemmikkujund?
@@ -216,4 +226,3 @@ while kujund != "":
     print(f"Palun {nimi}, siin on teie {värv} {kujund}!")
     exitonclick()
     break
-
