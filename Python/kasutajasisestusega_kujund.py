@@ -6,8 +6,8 @@
 # - kasutajasisend tuleb standardiseerida sõnetöötlusmeetoditega
 # - kui kasutaja ei sisesta midagi mis on valikus, töötab tsükkel niikaua kuni kasutaja sisestab midagi mis on
 # - kasutajasisend tõlgitakse turtle jaoks inglise keelde ifide abil
-# - - kasutaja peab saama öelda vastuse küsimusele (kas sinu lemmikvärv on siin) kas jah või ei, ning kui ei
-# - - siis paku kasutajale valida kaks lähimat värvi, ja moodusta hex arvutuse abil neist seguvärv
+#todo - - kasutaja peab saama öelda vastuse küsimusele (kas sinu lemmikvärv on siin) kas jah või ei, ning kui ei
+#todo - - siis paku kasutajale valida kaks lähimat värvi, ja moodusta hex arvutuse abil neist seguvärv
 # küsib kasutajalt tsükli sees mis on ta lemmikkujund
 # - Valikusse pange(ring, ruut, võrdhaarne kolmnurk, kuusnurk)
 # - kasutajasisend tuleb standardiseerida sõnetöötlusmeetoditega
@@ -26,7 +26,7 @@ kujund = ""
 nimi = ""
 
 while True:
-
+    
     nimi = str(input("Sisestage oma nimi.\n->"))
     try:
         vanus = int(input("Sisestage oma vanus. \n->"))
@@ -150,13 +150,17 @@ Teal
             värv2 = "00 64 00"
         värvlist1 = värv1.split()
         värvlist2 = värv2.split()
-        ivärvlist.append(hex(int(round((int(värvlist1[0],16) + int(värvlist2[0],16))/2))))
-        ivärvlist.append(hex(int(round((int(värvlist1[1],16) + int(värvlist2[1],16))/2))))
-        ivärvlist.append(hex(int(round((int(värvlist1[2],16) + int(värvlist2[2],16))/2))))
-        i = 3
-        while i != 0:
-            ivärvlist[i-1] = ivärvlist[i-1][2:]
-            i -=1
+        x = 1
+        while x != 4:
+            ivärvlistcheck = hex(int(round((int(värvlist1[x-1],16) + int(värvlist2[x-1],16))/2)))
+            if ivärvlistcheck == "0x0":
+                ivärvlistcheck = "0x00"
+            ivärvlist.append(ivärvlistcheck)
+            x += 1
+        i = 1
+        while i != 4:
+            ivärvlist[i-1] = ivärvlist[i-1][2:4]
+            i += 1
         ivärv = "#"+"".join(ivärvlist)
         print(ivärv)
         break
@@ -205,7 +209,6 @@ Kuusnurk
 
 while kujund != "":
     from turtle import *
-    
     color(ivärv)
     begin_fill()
     if kujund == "ring":
