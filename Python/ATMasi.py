@@ -6,6 +6,8 @@ spknimi = ""
 summa = 0
 ksumma = 0
 
+test = 0
+
 kood = 0
 jääk = 1424
 kood1 = 0
@@ -19,6 +21,7 @@ while pknimi != "Kallas":
 while True:
     try:
         kood = str(input("Sisestage kood.\n:"))
+        test = int(kood)
     except ValueError:
         input("Väär andmetüüp, vajutage enterit et edasi minna...")
     else:
@@ -54,14 +57,17 @@ Kas te soovite:
 """ * jääk)
                 input(f"Teil on {jääk} kullakangi. Vajutage enter, et edasi minna...")
     elif tegevus == "3":
-        while kood1 != 1234 and kood2 != 4321:
+        while True:
             try:
                 kood1 = int(input("Sisestage esimene kood.\n:"))
                 kood2 = int(input("Sisestage teine kood.\n:"))
             except ValueError:
                 input("Väär andmetüüp, vajutage enterit et edasi minna...")
             else:
-                break
+                if kood1 == 1234 and kood2 == 4321:
+                    break
+                else:
+                    print("Hint: Esimene kood on 1234.")
         break
     else:
         input("See ei ole valikus, vajutage enterit et edasi minna...")
