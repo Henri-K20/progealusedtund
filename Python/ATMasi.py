@@ -68,11 +68,11 @@ while kood1 == 1234 and kood2 == 4321:
 1. Ülekanne
 2. Välju
 ------------------------------------
-""")
+:""")
     if tegevus == "1":
         try:
             snimi = input("Sisestage saaja eesnimi.\n:").capitalize()
-            spknimi = input("Sisestage saaja perekonnanimi.\n").capitalize()
+            spknimi = input("Sisestage saaja perekonnanimi.\n:").capitalize()
             summa = int(input("Palju raha soovite saata?\n:"))
             ksumma = int(input("Mitu kullakangi soovite saata?\n:"))
         except ValueError:
@@ -99,4 +99,3 @@ Kulla kogus:
         break
     else:
         input("See ei ole valikus, vajutage enterit et edasi minna...")
-    
