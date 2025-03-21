@@ -24,9 +24,6 @@ mööbel = 0
 materjal = 10
 vastus = 0
 
-
-
-
 while True:
     ehitab = input("Kas te ehitate maja? jah/ei"+"\n:")
     if ehitab == "ei":
@@ -95,6 +92,7 @@ Sisestage valiku nr:
 :""").lower())
 
             summa += (pindala * hinnad[int(vastus)][int(materjal)])
+            cart.append(materjal)
             print(f"Hetkene summa on teil: {summa}")
     break
 
@@ -126,7 +124,7 @@ Sisestage valiku nr:
 
     print(f"Maksumus kokku on: €{summa}")
     while True:
-        kaart = input("Kas teil on kliendikaart olemas? jah/ei")
+        kaart = input("Kas teil on kliendikaart olemas? jah/ei\n:")
         if kaart == "jah":
             summa = ((summa - mööbel) *0.8) + (mööbel * 0.85)
             break
@@ -138,5 +136,3 @@ Sisestage valiku nr:
     for item in cart:
         print(item)
     print(f"Summa on €{summa}")
-        
-        
