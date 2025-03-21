@@ -6,8 +6,8 @@
 # - kasutajasisend tuleb standardiseerida sõnetöötlusmeetoditega
 # - kui kasutaja ei sisesta midagi mis on valikus, töötab tsükkel niikaua kuni kasutaja sisestab midagi mis on
 # - kasutajasisend tõlgitakse turtle jaoks inglise keelde ifide abil
-#todo - - kasutaja peab saama öelda vastuse küsimusele (kas sinu lemmikvärv on siin) kas jah või ei, ning kui ei
-#todo - - siis paku kasutajale valida kaks lähimat värvi, ja moodusta hex arvutuse abil neist seguvärv
+# - - kasutaja peab saama öelda vastuse küsimusele (kas sinu lemmikvärv on siin) kas jah või ei, ning kui ei
+# - - siis paku kasutajale valida kaks lähimat värvi, ja moodusta hex arvutuse abil neist seguvärv
 # küsib kasutajalt tsükli sees mis on ta lemmikkujund
 # - Valikusse pange(ring, ruut, võrdhaarne kolmnurk, kuusnurk)
 # - kasutajasisend tuleb standardiseerida sõnetöötlusmeetoditega
