@@ -101,7 +101,7 @@ Summa:
 €{summa}
 
 Kulla kogus:
-{ksumma}
+{ksumma} kangi
 ------------------------------------
 """)
             break
