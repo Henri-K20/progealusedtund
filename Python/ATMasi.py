@@ -1,3 +1,4 @@
+from random import randint
 nimi = ""
 pknimi = ""
 
@@ -9,7 +10,7 @@ ksumma = 0
 test = 0
 
 kood = 0
-jääk = 1424
+jääk = randint(100,2000)
 kood1 = 0
 kood2 = 0
 
