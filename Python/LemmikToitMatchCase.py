@@ -1,4 +1,3 @@
-valikud = ["makaron", "kiluvõileib", "hakklihakaste"]
 valik = ""
 i = 5
 
