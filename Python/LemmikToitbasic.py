@@ -19,4 +19,4 @@ Hakklihakaste
             print("Eh, kinda mid")
         break
     else:
-        input("Seda ei ole valikus! Vajuta enter, et uuesti proovida...\n:")
+        input("Seda ei ole valikus! Vajuta enter, et uuesti valida...\n:")
