@@ -1,5 +1,6 @@
 valikud = ["makaron", "kiluvõileib", "hakklihakaste"]
 valik = ""
+i = 5
 
 while True:
     valik = input("""
@@ -19,4 +20,8 @@ Hakklihakaste
             print("Eh, kinda mid")
         break
     else:
+        if i == 0:
+            print("ok, kui sa midagi ei taha siis aidaa!")
+            break
         input("Seda ei ole valikus! Vajuta enter, et uuesti valida...\n:")
+        i -= 1
