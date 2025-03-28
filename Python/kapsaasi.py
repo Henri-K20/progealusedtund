@@ -32,13 +32,11 @@ while True:
     
     if (pott and  muud) and (hapukapsas and kartul and puljong):
         print("Saate teha ühepajatoitu!")
-    if (pott and not vesi and not muud) and (hapukapsas and kartul and puljong):
+    if (pott and not vett and not muud) and (hapukapsas and kartul and puljong):
         print("Saab teha mulgikapsaid!")
-    if (not pott) and ( hapkapsas and  kartul and  puljong and  muud and vett):
+    if (not pott) and ( hapukapsas and  kartul and  puljong and  muud and vett):
         print("Ei saa teha mitte midagi!")
-    if (not hapukapsas and not muud) and pott and vett and puljong and kartul:
+    if not hapukapsas and not muud and pott and vett and puljong and kartul:
         print("Saab teha hautist!")
-    if (pott and not vesi and not muud) and (hapukapsas and kartul and puljong):
-        
-    
-    
+    if (not muud) and hapukapsas and pott and vett and kartul and puljong:
+        print("Saab hapukapsasuppi!")
