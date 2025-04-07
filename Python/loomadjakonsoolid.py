@@ -12,7 +12,7 @@ while True:
             i = int(input("Mitu tükki?\n:"))
             for kass in range(i):
                 loomad.append(input(f"Sisestage {kass+1}. kassi nimi.\n:"))
-            print(nimi+", olen kindel, et "+", ".join(loomad), " on armsad!")
+            print(nimi+", olen kindel, et "+" ja ".join([", ".join(loomad[:-1]),loomad[-1]]), "on armsad!")
             break
         elif vaste == "koer":
             vaste = input("Mis liiki on koer?\n:")
