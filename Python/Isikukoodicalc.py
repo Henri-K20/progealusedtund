@@ -17,7 +17,6 @@ while i:
         input("Väär andmetüüp! Sisestage ainult arve. Vajutage enter, et uuesti proovida.")
     else:
         i = False
-        break
 if i == False:
     if sugu == "m":
         sugu = choice([3,5])
@@ -27,4 +26,4 @@ if i == False:
         bmonth = "0" + str(bmonth)
     idkood = str(sugu)+str(byear)+str(bmonth)+str(bday)+str(randint(1000,9999))
     nimi = input("Sisestage oma ees- ja perekonnanimi.\n:").title()
-    print(f"Palun, {nimi} siin on teie isikukood.\n{idkood}")
+    print(f"Palun, {nimi}, siin on teie isikukood.\n{idkood}")
