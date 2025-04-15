@@ -14,8 +14,8 @@ pall = tahvel.create_oval(275,275,325,325,fill="black")
 
 
 def update():
-    raam.update()
     tahvel.pack()
+    raam.update()
 
 def up():
     tahvel.move(pall,0,-5)
