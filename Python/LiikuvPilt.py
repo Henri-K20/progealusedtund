@@ -1,54 +1,58 @@
-#kirjuta programm mis
-#kasutab time paketti
-#kasutab tkinter paketti
-#
-# küsi kasutajalt milline objekt talle kõige rohkem meeldib (valikus on pall, ruubiku-kuubik, vihmavari, vape)
-# programm otsib samast kaustast pildi selle nimega kas gif või png formaadis.
-# kasutades time.sleep() ja tahvel.move() ning raam.update() käsklusi
-# pane objekt ümber ekraani tsükli abil liikuma
-# - kõigepealt edasi-tagasi
-# - ja siis üles-alla
-# - ning siis ürita tsüklid ringiminemise jaoks ühendada
-# tahvel.coords() seab objektile uued koordinaadid (muutuja, uus x1, uus y1, uus x2, uus y2)
-# tahvel.move() liigutab objekti, parameetrid: (muutuja, kui palju x muuta, kui palju y muuta)
-# raam.update() värskendab akna sisu, vajalik enne ka tahvel.pack() teha
-# time.sleep() pidurdab programmi tööd sekunditega
-# raam.after() pidurdab raami uuendust millisekundites, 1000ms = 1s
-# loe lisa siit: https://web.htk.tlu.ee/digitaru/programmeerimine/chapter/lisalugemine-funktsiooni-graafik-liikuvad-pildid/
- 
-# ülesande standardlahendus: objekt liigub ruudukujulise trajektooriga akna sees
-# ülesande boonuslahendus: objekt liigub ringi trajektooriga akna sees
-
 from tkinter import *
+from math import *
 
 raam = Tk()
-raam.title("WOW!")
-tahvel = Canvas(raam,width=1000,height=1000)
-px = 0
-py = 0
+raam.title("spinning...")
+tahvel = Canvas(raam,width=800,height=800)
+r = 200
+nurk = 40
+i = 0
 
+while True:
+    try:
+        img = int(input("""
+    #######################
+    Valige lemmik objekt:
 
+    1. Pall
+    2. Ruubiku-Kuubik
+    3. Vihmavari
+    4. Vape
 
-objekt = input("""
-#######################
- Valige lemmik objekt:
+    Sisestage valiku arv.
+    :"""))
+    except ValueError:
+        input("Väär sisend! Vajutage enter, et uuesti proovida...")
+    else:
+        if img > 4 or img < 1:
+            input("Seda pole valikus! Vajutage enter, et uuesti proovida...")
+        else:
+            break
 
-1. Pall
-2. Ruubiku-Kuubik
-3. Vihmavari
-4. Vape
+match img:
+    case 1:
+        img = PhotoImage(file="Pildid/Pall.png")
 
-Sisestage valiku arv.
-:""")
+    case 2:
+        img = PhotoImage(file="Pildid/kuubik.png")
 
-pall = PhotoImage(file="")
-ruubikuKuubik = PhotoImage(file="")
-vihmavari = PhotoImage(file="")
-vape = PhotoImage(file="")
+    case 3:
+        img = PhotoImage(file="Pildid/vihmavari.png")
 
+    case 4:
+        img = PhotoImage(file="Pildid/vape.png")
 
+objekt = tahvel.create_image(400,400,image=img)
 
+while True:
+    x = ((r/2*pi)*cos(i/nurk))
+    y = ((r/2*pi)*sin(i/nurk))
+    i += 1
+    tahvel.coords(objekt, x, y)
+    print(f"x:{x}, y:{y}")
+    tahvel.move(objekt,400,400)
+    raam.after(1)
+    tahvel.pack()
+    raam.update()
 
-
-update()
 raam.mainloop()
