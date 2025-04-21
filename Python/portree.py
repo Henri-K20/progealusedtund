@@ -68,6 +68,33 @@ Sisestage valiku arv.
             case _:
                 input("Seda ei ole valikus! Vajutage enterit, et uuesti proovida...")
 
+while True:
+    try:
+        ilm = int(input("""
+######################
+Missugune on ilm?
+1. Pilvitu
+2. pilvine
+3. vihmane
+
+Sisestage valiku arv.
+:"""))
+    except ValueError:
+        input("Sisestage arv! Vajutage enterit, et uuesti proovida...")
+    else:
+        match ilm:
+            case 1:
+                ilm = tahvel.create_rectangle(0,0,300,300,fill="lightblue",outline="lightblue")
+                break
+            case 2:
+                ilm = tahvel.create_rectangle(0,0,300,300,fill="white",outline="white")
+                break
+            case 3:
+                ilm = tahvel.create_rectangle(0,0,300,300,fill="gray",outline="gray")
+                break
+            case _:
+                input("Seda ei ole valikus! Vajutage enterit, et uuesti proovida...")
+
 base = PhotoImage(file="Pildid/base.png")
 
 try:
@@ -75,6 +102,7 @@ try:
 except TclError:
     tahvel.create_oval(105,105,195,195,fill="beige")
 else:
+    
     tahvel.create_image(150,150,image=base,anchor=CENTER)
     tahvel.create_image(150,165,image=face,anchor=CENTER)
     tahvel.create_image(150,100,image=pea,anchor=CENTER)
