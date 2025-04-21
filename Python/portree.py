@@ -101,8 +101,7 @@ try:
     tahvel.create_oval(105,105,195,195,fill=nahk)
 except TclError:
     tahvel.create_oval(105,105,195,195,fill="beige")
-else:
-    
+else:    
     tahvel.create_image(150,150,image=base,anchor=CENTER)
     tahvel.create_image(150,165,image=face,anchor=CENTER)
     tahvel.create_image(150,100,image=pea,anchor=CENTER)
