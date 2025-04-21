@@ -4,7 +4,7 @@ raam.title("Portree!")
 tahvel = Canvas(raam,width=300,height=300,background="white")
 
 while True:
-    nahk = input("Sisestage oma nahavärv inglise keeles. nt brown, beige.\n:")
+    nahk = input("Sisestage oma nahavärv inglise keeles. nt brown või beige, saate ka kasutada hex arve! nt #008000.\n:")
     try:
         pea = int(input("""
 ########################
