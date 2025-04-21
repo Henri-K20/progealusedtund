@@ -88,8 +88,8 @@ while True:
         except ValueError:
             if nahk in COLORS or (nahk.startswith("#") and len(nahk) == 7):
                 break
-            elif nahk not in COLORS:
-                input("Ei sobi, sisestage korrektne värv inglise keeles. Vajutage enterit, et uuesti proovida...")
+            else:
+                input("Ei sobi, sisestage korrektne värv inglise keeles või hexiga. Vajutage enterit, et uuesti proovida...")
         else:
             input("Arvud ei sobi! Sisestage sõne või hex värv. Vajutage enterit, et uuesti proovida...")
     try:
