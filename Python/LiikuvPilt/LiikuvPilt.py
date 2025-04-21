@@ -31,16 +31,16 @@ while True:
 
 match img:
     case 1:
-        img = PhotoImage(file="Pildid/Pall.png")
+        img = PhotoImage(file="pall.png")
 
     case 2:
-        img = PhotoImage(file="Pildid/kuubik.png")
+        img = PhotoImage(file="kuubik.png")
 
     case 3:
-        img = PhotoImage(file="Pildid/vihmavari.png")
+        img = PhotoImage(file="vihmavari.png")
 
     case 4:
-        img = PhotoImage(file="Pildid/vape.png")
+        img = PhotoImage(file="vape.png")
 
 objekt = tahvel.create_image(400,400,image=img)
 
