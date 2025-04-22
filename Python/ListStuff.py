@@ -18,28 +18,31 @@
 # print("Teie pere keskmine pikkus on",round(kokku,2),"sentimeetrit.")
 
 loomad = []
-loop = True
-
-loomadloop = True
-while loop:
+vaste = ""
+loom = "i"
+while vaste == "":
     vaste = input("Kas teil on perekonnaliikmeid? jah/ei\n:").lower()
     if vaste == "jah":
-        while loomadloop:
-            input("Sisestage liikmete lemmikloomanimed. Kui ei ole enam, vajutage enter.\n:")
-            if loomad[-1] == "":
-                loomadloop = False
-                loomad.pop()
-        loop = False
-        print("Loomad on:", " ja ".join([", ".join(loomad[:-1]),loomad[-1]]))
+        while loom != "":
+            loom = input("Sisestage liikmete lemmikloomanimed. Kui ei ole enam, vajutage enter.\n:").capitalize()
+            loomad.append(loom)
+        loomad.pop()
+        if len(loomad) == 1:
+            print("Teie perekonnaliikme loom on", loomad[0]+".")
+        else:
+            print("Teie perekonnaliikmete loomad on", " ja ".join([", ".join(loomad[:-1]),loomad[-1]])+".")
     elif vaste == "ei":
         vaste = input("Kas teil on lemmikloomi? jah/ei\n:").lower()
         if vaste == "ei":
             print("Kahju, pesaleidjas on palju kasse kes tahaksid kodu.")
-            loop = False
         elif vaste == "jah":
-            loomad.append(input("Sisestage lemmikloomanimed. Kui ei ole enam, vajutage enter.\n:"))
-            if loomad[-1] == "":
-                loomad.pop()
-                print("Loomad on:", " ja ".join([", ".join(loomad[:-1]),loomad[-1]]))
+            while loom != "":
+                loom = input("Sisestage lemmikloomanimed. Kui ei ole enam, vajutage enter.\n:").capitalize()
+                loomad.append(loom)
+            loomad.pop()
+            if len(loomad) == 1:
+                print("Teie loom on", loomad[0]+".")
+            else:
+                print("Teie loomad on", " ja ".join([", ".join(loomad[:-1]),loomad[-1]])+".")
 
 
