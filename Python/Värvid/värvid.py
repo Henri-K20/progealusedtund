@@ -1,8 +1,9 @@
 fail = open("colors.txt",encoding="UTF-8")
 read = []
-read1 = []
+i = 0
 for rida in fail:
-    read.append(rida.strip("\n"))
+    if i % 8 == 0 or i == 0:    
+        read.append(rida.strip("\n"))
+    i+=1
 fail.close()
-read1.append(read[0::8])
-print(read1)
+print(read)
