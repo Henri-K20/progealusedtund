@@ -1,22 +1,3 @@
-# perekonnaliikmed = []
-# while True:
-#     vaste = input("Sisestage perekonnaliige. Kui ei ole, vajutage enter.\n:")
-#     if vaste == "":
-#         break
-#     perekonnaliikmed.append(vaste)
-# print(" ja ".join([", ".join(perekonnaliikmed[:-1]),(perekonnaliikmed[-1])]))
-# 
-# pikkused = []
-# kokku = 0
-# while True:
-#     pikkus = input("Sisesta pereliikmete pikkused (cm), kui kõik vajutage enter.\n:")
-#     if pikkus == "":
-#         break
-#     pikkused.append(float(pikkus))
-# kokku = sum(pikkused)
-# kokku /= len(pikkused)
-# print("Teie pere keskmine pikkus on",round(kokku,2),"sentimeetrit.")
-
 loomad = []
 vaste = ""
 loom = "i"
