@@ -1,40 +1,39 @@
-seened = ["pilvik", "kukeseen", "mürklid", "puravik", "võiseen"]
-marjad = ["mustikas", "jõhvikas", "vaarikas", "karusmari", "must sõstar"]
+seened = ["lisa juurde", "pilvik", "kukeseen", "mürklid", "puravik", "võiseen"]
+seenedSisu = []
+
+marjad = ["lisa juurde", "mustikas", "jõhvikas", "vaarikas", "karusmari", "must sõstar"]
+marjadSisu = []
+
 midaOtsib = ""
+valik = ""
 
 while midaOtsib == "":
     midaOtsib = input("Kas te otsite seent või marja?\n->").lower()
 
 if midaOtsib == "seent":
-     while midaOtsib not in seened: 
+     while valik not in seened: 
         print("""########################
 Sisestage valiku number.""")
         for index, seen in enumerate(seened):
             print(f"{index}: {seen.capitalize()}")
         
         try:
-            midaOtsib = seened[int(input("\n->"))]
+            valik = seened[int(input("\n->"))]
         except (IndexError, ValueError):
             input("Väär sisestus! Vajuta enterit, et uuesti proovida!\n->")
-        else:
-            print(midaOtsib)
-#     match midaOtsib:
-#         case 0:
-#             
-#         case 1:
-#             
-#         case 2:
-#             
-#         case 3:
-#             
-#         case 4:
-#             
-#         case 5:
-#             
-#         case _:
-#             print("oiei!")
+    
+elif midaOtsib == "marja":
+    while valik not in marjad: 
+        print("""########################
+Sisestage valiku number.""")
+        for index, mari in enumerate(marjad):
+            print(f"{index}: {mari.capitalize()}")
+        
+        try:
+            valik = marjad[int(input("\n->"))]
+        except (IndexError, ValueError):
+            input("Väär sisestus! Vajuta enterit, et uuesti proovida!\n->")
 
 
 
-#elif midaOtsib == "marja":
 
