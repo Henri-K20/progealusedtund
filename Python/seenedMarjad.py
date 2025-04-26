@@ -14,10 +14,11 @@ marjadSisu = [
             "Karusmari (rahvapärase nimetusega tikker) õitseb aprillis-mais. Õied on rippuvad, rohekad või punakad, ühe-kahe kaupa lühivõrsetel lehtede kaenlas. Marjad on rohelised, kollakad, punakad või purpurjad, kerajad, munajad või piklikud, paljad või karvased.",
             "Must sõstar on tumeda koorega mari, mis on rikkalik C-vitamiini poolest. Seda kasutatakse sageli moosides, mahlades ja tervislikes jookides."]
 
-midaOtsib = ""
-valik = ""
+tahabLugeda= True
 
-while True:
+while tahabLugeda:
+    midaOtsib = ""
+    valik = ""
     while midaOtsib == "":
         midaOtsib = input("Kas te otsite seent või marja?\n->").lower()
         if midaOtsib != "seent" and midaOtsib != "marja":
@@ -38,7 +39,7 @@ Sisestage valiku number.""")
             else:
                 if seened.index(valik) == 0:
                     seened.append(input("Sisestage uue seene nimi.\n->").lower())
-                    seenedSisu.append(input(f"Sisestage {seened[-1]} tekst.\n->").capitalize())
+                    seenedSisu.append(input(f"Sisestage uue seene tekst.\n->").capitalize())
                 else:
                     print(seenedSisu[seened.index(valik)-1])
 
@@ -56,14 +57,15 @@ Sisestage valiku number.""")
             else:
                 if marjad.index(valik) == 0:
                     marjad.append(input("Sisestage uue marja nimi.\n->").lower())
-                    marjadSisu.append(input(f"Sisestage {marjad[-1]} tekst.\n->").capitalize())
+                    marjadSisu.append(input(f"Sisestage uue marja tekst.\n->").capitalize())
                 else:
                     print(marjadSisu[marjad.index(valik)-1])
 
-
-    valik = input("\nKas soovite lõpetada? jah/ei\n->").lower()
-    if valik == "jah":
-        break
-    elif valik == "ei":
-        midaOtsib = ""
-        valik = ""
+    while valik != "jah" and valik != "ei":
+        valik = input("\nKas soovite lõpetada? jah/ei\n->").lower()
+        if valik == "jah":
+            tahabLugeda = False
+        elif valik == "ei":
+            tahabLugeda = True
+        else:
+            input("Väär sisestus! Vajuta enterit, et uuesti proovida!\n->")
