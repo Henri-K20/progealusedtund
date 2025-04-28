@@ -29,7 +29,7 @@ while tahabLugeda:
          while valik not in seened: 
             print("########################## \n#Sisestage valiku number.#")
             for index, seen in enumerate(seened):
-                print(f"#{index}: {seen.capitalize()}"+(21-len(seen))*" "+"#")
+                print(f"#{index}: {seen.capitalize()}"+(22-(len(seen)+len(str(index))))*" "+"#")
             print("##########################")
             try:
                 valik = seened[int(input("\n->"))]
@@ -46,7 +46,7 @@ while tahabLugeda:
         while valik not in marjad: 
             print("########################## \n#Sisestage valiku number.#")
             for index, mari in enumerate(marjad):
-                print(f"#{index}: {mari.capitalize()}"+(21-len(mari))*" "+"#")
+                print(f"#{index}: {mari.capitalize()}"+(22-(len(mari)+len(str(index))))*" "+"#")
             print("##########################")
             try:
                 valik = marjad[int(input("\n->"))]
