@@ -13,10 +13,17 @@ while lemmikfilm == "":
     lemmikfilm = input("Sisestage oma kõige lemmikum film!\n:").lower()
 
 if lemmikfilm in filmid:
-    print(f"Ossa, oled {lemmikfilm} isegi kaks korda pannud!")
-    
+    print(f"Ossa, oled {lemmikfilm} isegi kaks korda pannud!\n")
+
 elif lemmikfilm not in filmid:
-    print(f"Aga, kus on {lemmikfilm}?")
+    print(f"Aga, kus on {lemmikfilm}?\n")
+
+while vaste != "jah" and vaste != "ei":
+    vaste = input("Kas teile meeldib interstellar? jah/ei\n:")
+    if vaste == "jah":
+        filmid.append("interstellar")
+    elif vaste == "ei":
+        print("Aga miks? See on ju hea...")
 
 if film in filmid:
     print("You'll be back...")
