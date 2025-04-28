@@ -13,7 +13,6 @@ marjadSisu = [
             "Vaarika varred on enamasti ogalised ja seest suure säsiga. Varre eluiga kestab kaks aastat. Teisel aastal vars viljub ja siis kuivab.",
             "Karusmari (rahvapärase nimetusega tikker) õitseb aprillis-mais. Õied on rippuvad, rohekad või punakad, ühe-kahe kaupa lühivõrsetel lehtede kaenlas. Marjad on rohelised, kollakad, punakad või purpurjad, kerajad, munajad või piklikud, paljad või karvased.",
             "Must sõstar on tumeda koorega mari, mis on rikkalik C-vitamiini poolest. Seda kasutatakse sageli moosides, mahlades ja tervislikes jookides."]
-
 tahabLugeda= True
 
 while tahabLugeda:
