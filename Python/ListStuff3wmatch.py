@@ -30,6 +30,6 @@ match len(filmid):
     case _ if 5 < len(filmid) <= 10:
         print("Käid tihti kinos?")
     case _ if len(filmid) > 10:
-        print("Siis, pole mul siin midagi öelda härra movieguru, headaega")
+        print("Siis pole mul siin midagi öelda härra movieguru, headaega")
     case _:
         print("Err...")
