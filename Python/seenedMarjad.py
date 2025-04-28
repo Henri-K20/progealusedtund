@@ -27,11 +27,10 @@ while tahabLugeda:
 
     if midaOtsib == "seent":
          while valik not in seened: 
-            print("""########################
-Sisestage valiku number.""")
+            print("########################## \n#Sisestage valiku number.#")
             for index, seen in enumerate(seened):
-                print(f"{index}: {seen.capitalize()}")
-            
+                print(f"#{index}: {seen.capitalize()}"+(21-len(seen))*" "+"#")
+            print("##########################")
             try:
                 valik = seened[int(input("\n->"))]
             except (IndexError, ValueError):
@@ -45,11 +44,10 @@ Sisestage valiku number.""")
 
     elif midaOtsib == "marja":
         while valik not in marjad: 
-            print("""########################
-Sisestage valiku number.""")
+            print("########################## \n#Sisestage valiku number.#")
             for index, mari in enumerate(marjad):
-                print(f"{index}: {mari.capitalize()}")
-            
+                print(f"#{index}: {mari.capitalize()}"+(21-len(mari))*" "+"#")
+            print("##########################")
             try:
                 valik = marjad[int(input("\n->"))]
             except (IndexError, ValueError):
