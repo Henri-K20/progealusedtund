@@ -19,7 +19,7 @@ elif lemmikfilm not in filmid:
     print(f"Aga, kus on {lemmikfilm}?\n")
 
 while vaste != "jah" and vaste != "ei":
-    vaste = input("Kas teile meeldib interstellar? jah/ei\n:")
+    vaste = input("Kas teile meeldib interstellar? jah/ei\n:").lower()
     if vaste == "jah":
         filmid.append("interstellar")
     elif vaste == "ei":
