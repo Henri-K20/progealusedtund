@@ -6,12 +6,13 @@ fail = open("Andmed\joostud.txt", encoding="UTF-8")
 kokku = []
 keskmine = 0
 for rida in fail:
-    kokku.append(rida)
+    kokku.append(float(rida.strip()))
 fail.close()
-print("Siin on kõik tulemused:\n", *kokku)
-print("Siin on tulemused, mis on 10km või alla:")
+print("Siin on kõik tulemused kokku:\n", sum(kokku))
+
+print("\nSiin on tulemused, mis on 10km või alla:")
 for arv in kokku:
-    keskmine+=float(arv)
-    if float(arv) <= 10:
-        print(arv.strip())
-print(f"\nJooksude keskmine on: {round(float(arv)/len(kokku),2)} km")
+    keskmine += arv
+    if arv <= 10:
+        print(arv)
+print(f"\nJooksude keskmine on: {round(keskmine/len(kokku),2)} km")
