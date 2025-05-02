@@ -1,6 +1,4 @@
-fail = open("Andmed\joostud.txt")
-kokku = 0
+fail = open("Andmed\joostud.txt", encoding="UTF-8")
 for rida in fail:
     if float(rida) > 10:
-        kokku+= float(rida)
-print(f"Te olete kokku jooksnud: {kokku} kilomeetrit.")
+        print(float(rida))
