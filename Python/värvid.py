@@ -1,4 +1,4 @@
-fail = open("colors.txt",encoding="UTF-8")
+fail = open("Andmed\colors.txt",encoding="UTF-8")
 read = []
 i = 0
 for rida in fail:
