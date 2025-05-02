@@ -3,7 +3,7 @@ from keyboard import *
 raam = Tk()
 raam.title("Mäng!")
 tahvel = Canvas(raam,width=500,height=500,background="white")
-border = tahvel.create_rectangle(5,5,495,495,outline="white")
+border = tahvel.create_rectangle(100,100,400,400)
 pall = tahvel.create_rectangle(225,225,275,275,fill="limegreen")
 
 def update():
@@ -18,19 +18,19 @@ def move():
     y = 0
     
     if bordercoord[0] > pallcoord[0]:
-        x=1
+        x=5
     elif is_pressed("a"):
         x-=5
     if bordercoord[2] < pallcoord[2]:
-        x=-1
+        x=-5
     elif is_pressed("d"):
         x+=5
     if bordercoord[1] > pallcoord[1]:
-        y=1
+        y=5
     elif is_pressed("w"):
         y-=5
     if bordercoord[3] < pallcoord[3]:
-        y=-1
+        y=-5
     elif is_pressed("s"):
         y+=5
     
@@ -42,8 +42,4 @@ while True:
     if is_pressed("q"):
         break
     move()
-
-
-
-
 raam.mainloop()
