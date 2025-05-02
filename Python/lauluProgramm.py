@@ -17,7 +17,7 @@ for rida in sõnad:
         if len(sõna) > 7:
             print(sõna)
 for i in range(4):
-    sõnad.append(input(f"\nSisesta uus rida nr {i+1}.\n:"))
+    sõnad.append(input(f"\nSisesta uus rida ({i+1})\n:"))
 
 while vaste != "ei" and vaste != "jah":
     vaste = input("\nKas soovite näha sõnu uuesti? jah/ei\n:").lower()
