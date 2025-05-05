@@ -6,9 +6,8 @@ for rida in fail:
     andmed.append(rida.split())
 fail.close()
 
-if andmed[0] != "edasi" or andmed[0] != "tagasi" or andmed[0] != "paremale" or andmed[0] != "vasakule":
-    color(andmed[0])
-    andmed.pop(0)
+color(andmed[0])
+andmed.pop(0)
 
 i = 0
 while i < len(andmed):
