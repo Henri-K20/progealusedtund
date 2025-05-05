@@ -36,7 +36,10 @@ def kookKüünlad():
     for i in range(vanus+1):
         if i != 0 and i % 21 == 0:
             y+= 20
-            z+= 3
+            if z < 3:
+                z+= 3
+            else:
+                z = 0
             x = z
         tahvel.create_polygon(90+x,455,90+x,260+y,94+x,260+y,94+x,250+y,94+x,260+y,100+x,260+y,100+x,455,fill="white",outline="black")
         tahvel.create_polygon(93+x,257+y,91+x,254+y,93+x,250+y,94+x,247+y,96+x,250+y,97+x,252+y,97+x,255+y,95+x,257+y,fill="yellow",outline="black")
