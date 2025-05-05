@@ -1,0 +1,24 @@
+green
+edasi 40
+vasakule 90
+edasi 20
+paremale 90
+edasi 20
+vasakule 90
+edasi 40
+vasakule 90
+edasi 20
+paremale 90
+edasi 20
+vasakule 90
+edasi 40
+vasakule 90
+edasi 20
+paremale 90
+edasi 20
+vasakule 90
+edasi 40
+vasakule 90
+edasi 20
+paremale 90
+edasi 20
