@@ -30,11 +30,11 @@ def õhupall(kogus):
         tahvel.create_polygon(33+x,96+y,34+x,69+y,46+x,55+y,58+x,55+y,73+x,62+y,74+x,92+y,54+x,107+y,61+x,117+y,48+x,117+y,54+x,107+y,fill="red",outline="black")
         x += 45
 def kookKüünlad():
+    for i in range(vanus+1):
+        tahvel.create_polygon(90,455,90,310,115,310,115,455,fill="white",outline="black")
     tahvel.create_rectangle(80,356,402,470,fill="beige")
     tahvel.create_oval(80,356,402,356,fill="black")
     tahvel.create_oval(80,470,402,470,fill="black")
-    for i in range(vanus):
-        tahvel.create_polygon(90,455,90,310,115,310,115,455,fill="white")
 
 
 
