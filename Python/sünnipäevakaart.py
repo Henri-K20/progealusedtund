@@ -1,19 +1,34 @@
+# NB! kõik küsimised on tsüklis mis kontrollitud tsüklimuutujaga (mitte True ja break)
+# NB! kõik sisendud töödeldakse standardkujule
+# NB! kõik funktsionaalsed osad mis pole üldise programmi osa, peab olema kirjutatud funktsioonina
+# kasutab tkinterit
+# kirjuta programm mis
+#
+# Küsib kasutajalt tema ees ja perekonnanime
+# küsib kasutajalt tema sünnipäeva
+# küsib kasutajalt tema vanust
+# küsib kasutajalt mida ta oma sünnipäevakaardile näha tahab
+# - kas õhupalle (jah/ei) #õhupalli joonistamine on alamfunktsioon
+# - - kui jah siis mitu (arv)
+# - kas kooki küünaldega (jah/ei) (küünalde arv on kasutaja vanus +=1) #koogi ja küünalde joonistamine on alamfunktsioon)
+# - kas kingitust õnnesoovidega (palju õnne vanus +=1 saamise puhul)
+# - või kas kõike korraga
+# programm joonistab kasutajale tkinteri abil sünnipäevakaardi.
+
 from tkinter import *
 raam = Tk()
 raam.title("Palju Õnne!")
 tahvel = Canvas(raam,height=500,width=500)
 
 def õhupall(kogus):
-    tahvel.create_polygon(349,55,365,45,384,57,383,76,370,90,375,97,366,97,370,90,353,79,fill=)
-
-
-
-
-
-
-
-
-
+    y = 0
+    x = 0
+    for i in range(kogus):
+        if i != 0 and i % 10 == 0:
+            y+= 65
+            x = 0
+        tahvel.create_polygon(33+x,96+y,34+x,69+y,46+x,55+y,58+x,55+y,73+x,62+y,74+x,92+y,54+x,107+y,61+x,117+y,48+x,117+y,54+x,107+y,fill="red")
+        x += 45
 
 nimi = ""
 sünna = ""
@@ -23,9 +38,11 @@ kogus = 0
 
 while nimi == "" or sünna == "" or vanus == "":
     nimi = input("Sisestage oma ees ja perekonnanimi!\n:").capitalize()
-    sünna = input("Sisestage oma sünnipäev.\n:").lower()
-    vanus = input("Sisestage vanus.\n:").lower()
-
+    sünna = input("Sisestage oma sünnipäev.\n:")
+    try:
+        vanus = int(input("Sisestage vanus.\n:"))
+    except ValueError:
+        input("Väär sisend! Vajutage enterit, et uuesti proovida.")
 while vaste == "":
     try:
         vaste = int(input("""
@@ -59,7 +76,7 @@ Mida soovite sünnipäevakaardil näha?
             case _:
                 input("Seda ei ole valikus! Vajutage enterit, et uuesti proovida.")
 
-
+õhupall(kogus)
 
 
 tahvel.create_text(250,39,text=f"Palju õnne {nimi}! Sündisid {sünna}, oled nüüd {vanus+1}. aasta vanune!")
