@@ -23,12 +23,18 @@ tahvel = Canvas(raam,height=500,width=500)
 def õhupall(kogus):
     x = 0
     y = 0
+    while kogus == 0:
+        try:
+            kogus = int(input("Sisestage, mitu õhupalli soovite!\n:"))
+        except ValueError:
+            input("Väär sisend! Vajutage enterit, et uuesti proovida.")
     for i in range(kogus):
         if i != 0 and i % 10 == 0:
             y+= 65
             x = 0
         tahvel.create_polygon(33+x,96+y,34+x,69+y,46+x,55+y,58+x,55+y,73+x,62+y,74+x,92+y,54+x,107+y,61+x,117+y,48+x,117+y,54+x,107+y,fill="red",outline="black")
         x += 45
+
 def kookKüünlad():
     x = 0
     y = 0
@@ -80,30 +86,16 @@ Mida soovite sünnipäevakaardil näha?
     else:
         match vaste:
             case 0:
-                while kogus == 0:
-                    try:
-                        kogus = int(input("Sisestage, mitu õhupalli soovite!\n:"))
-                    except ValueError:
-                        input("Väär sisend! Vajutage enterit, et uuesti proovida.")
-                    else:
-                        õhupall(kogus)
+                õhupall(kogus)
             case 1:
                 kookKüünlad()
             case 2:
                 õnnesoov()
             case 3:
-                while kogus == 0:
-                    try:
-                        kogus = int(input("Sisestage, mitu õhupalli soovite!\n:"))
-                    except ValueError:
-                        input("Väär sisend! Vajutage enterit, et uuesti proovida.")
-                    else:
-                        õhupall(kogus)
-                        õnnesoov()
-                        kookKüünlad()
+                õhupall(kogus)
+                õnnesoov()
+                kookKüünlad()
             case _:
                 input("Seda ei ole valikus! Vajutage enterit, et uuesti proovida.")
-
-õhupall(kogus)
 tahvel.pack()
 raam.mainloop()
