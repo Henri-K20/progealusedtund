@@ -48,7 +48,8 @@ def kookKüünlad():
     tahvel.create_oval(80,356,410,356,fill="black")
     tahvel.create_oval(80,470,410,470,fill="black")
 
-
+def õnnesoov():
+    tahvel.create_text(250,39,text=f"Palju õnne {nimi}! Sündisid {sünna}, oled nüüd {vanus+1}. aasta vanune!")
 
 nimi = ""
 sünna = ""
@@ -84,20 +85,25 @@ Mida soovite sünnipäevakaardil näha?
                         kogus = int(input("Sisestage, mitu õhupalli soovite!\n:"))
                     except ValueError:
                         input("Väär sisend! Vajutage enterit, et uuesti proovida.")
+                    else:
+                        õhupall(kogus)
             case 1:
                 kookKüünlad()
             case 2:
-                #õnnesoov
-                pass
+                õnnesoov()
             case 3:
-                #kõik korraga
-                pass
+                while kogus == 0:
+                    try:
+                        kogus = int(input("Sisestage, mitu õhupalli soovite!\n:"))
+                    except ValueError:
+                        input("Väär sisend! Vajutage enterit, et uuesti proovida.")
+                    else:
+                        õhupall(kogus)
+                        õnnesoov()
+                        kookKüünlad()
             case _:
                 input("Seda ei ole valikus! Vajutage enterit, et uuesti proovida.")
 
 õhupall(kogus)
-
-
-tahvel.create_text(250,39,text=f"Palju õnne {nimi}! Sündisid {sünna}, oled nüüd {vanus+1}. aasta vanune!")
 tahvel.pack()
 raam.mainloop()
