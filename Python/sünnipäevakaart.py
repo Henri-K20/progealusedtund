@@ -56,6 +56,8 @@ def kookKüünlad():
 
 def õnnesoov():
     tahvel.create_text(250,39,text=f"Palju õnne {nimi}! Sündisid {sünna}, oled nüüd {vanus+1}. aasta vanune!")
+    tahvel.create_rectangle(184,388,296,480,fill="red",outline="black")
+    tahvel.create_polygon(184,422,229,422,229,388,250,388,250,422,296,422,296,442,250,442,250,480,229,480,229,442,184,442,fill="yellow",outline="black")
 
 nimi = ""
 sünna = ""
@@ -93,8 +95,8 @@ Mida soovite sünnipäevakaardil näha?
                 õnnesoov()
             case 3:
                 õhupall(kogus)
-                õnnesoov()
                 kookKüünlad()
+                õnnesoov()
             case _:
                 input("Seda ei ole valikus! Vajutage enterit, et uuesti proovida.")
 tahvel.pack()
